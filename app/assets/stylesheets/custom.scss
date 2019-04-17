@@ -1,0 +1,11 @@
+.bg-custom {
+  background-color: #2b3eca !important;
+}
+.navbar-primary .navbar-brand, .nav-link { 
+  color: #fff !important; 
+}
+.dropdown-item:hover, .dropdown-item:focus {
+  color: #fff;
+  text-decoration: none;
+  background-color: #2b3eca;
+}
