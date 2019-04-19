@@ -1,0 +1,97 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-xl-8 offset-xl-2 col-md-10 offset-md-1 col-sm-10 offset-sm-1 col-12">
+      <h5>Edit Personal Info</h5>
+      <hr>
+      <%= form_for @user, url: :user_update_profile, html: { method: :post } do |f| %>
+
+        <%= f.hidden_field :longitude, id: :longitude %>
+        <%= f.hidden_field :latitude, id: :latitude %>
+        <%= f.hidden_field :id, value: current_user.id %>
+
+        <div class="row">
+          <div class="col-md-6 col-xl-6 col-sm-12 col-12 form-group">
+            <%= f.label :first_name %><br />
+            <%= f.text_field :first_name, autofocus: true, class: "form-control", placeholder: "First name" %>
+          </div>
+          <div class="col-md-6 col-xl-6 col-sm-12 col-12 form-group">
+            <%= f.label :last_name %><br />
+            <%= f.text_field :last_name, class: "form-control", placeholder: "Last name" %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 col-xl-6 col-sm-12 col-12 form-group">
+            <%= f.label :date_of_birth %><br />
+            <%= f.text_field :date_of_birth, class: "form-control", placeholder: "Date of birth" %>
+          </div>
+          <div class="col-md-6 col-xl-6 col-sm-12 col-12 form-group">
+            <%= f.label :contact %><br />
+            <%= f.text_field :contact, class: "form-control", placeholder: "Contact" %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 col-xl-6 col-sm-12 col-12 form-group">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, class: "form-control", placeholder: "Email" %>
+          </div>
+        </div>
+
+        <h5 class="mt-4">Edit Location Info</h5>
+        <hr>
+
+        <div class="row">
+          <div class="col-md-6 col-xl-6 col-sm-12 col-12 form-group" id="locationField">
+            <%= f.label :address %><br />
+            <%= f.text_field :address, class: "form-control", placeholder: "Address", id: "autocomplete", onFocus: "geolocate()" %>
+          </div>
+          <div class="col-md-6 col-xl-6 col-sm-12 col-12 form-group">
+            <%= f.label :city %><br />
+            <%= f.text_field :city, class: "form-control", placeholder: "City", id: "locality", disabled: true %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 col-xl-6 col-sm-12 col-12 form-group">
+            <%= f.label :state %><br />
+            <%= f.text_field :state, class: "form-control", placeholder: "State", id: "administrative_area_level_1", disabled: true %>
+          </div>
+          <div class="col-md-6 col-xl-6 col-sm-12 col-12 form-group">
+            <%= f.label :country %><br />
+            <%= f.text_field :country, class: "form-control", placeholder: "Country", id: "country", disabled: true %>
+          </div>
+        </div>
+
+
+        <h5 class="mt-4">Edit Password Info</h5>
+        <hr>
+
+        <div class="form-group">
+          <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+          <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+          <% if @minimum_password_length %>
+            <br />
+            <em><%= @minimum_password_length %> characters minimum</em>
+          <% end %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+          <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Update", class: "btn float-right bg-custom text-white" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFBYM37YGMTdgkEp9fipPljSjprTDZL8Y&libraries&libraries=places&callback=initAutocomplete" async defer></script>
