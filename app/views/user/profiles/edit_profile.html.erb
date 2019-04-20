@@ -5,7 +5,7 @@
       <hr>
       <%= form_for @user, url: :user_update_profile, html: { method: :post } do |f| %>
 
-        <%= f.hidden_field :longitude, id: :latitude %>
+        <%= f.hidden_field :longitude, id: :longitude %>
         <%= f.hidden_field :latitude, id: :latitude %>
         <%= f.hidden_field :id, value: current_user.id %>
 

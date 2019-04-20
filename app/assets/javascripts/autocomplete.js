@@ -24,9 +24,9 @@ function initAutocomplete() {
 function fillInAddress() {
   // Get the place details from the autocomplete object.
   var place = autocomplete.getPlace();
-
-  $("#lat").val(results[0].geometry.location.lat());
-  $("#lng").val(results[1].geometry.location.lng());
+  
+  $("#latitude").val(results[0].geometry.location.lat());
+  $("#longitude").val(results[1].geometry.location.lng());
 
   for (var component in componentForm) {
     document.getElementById(component).value = '';
