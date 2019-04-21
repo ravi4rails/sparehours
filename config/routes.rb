@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   }
 
   get '/register' => 'home#register'
+  get '/pricing'  => 'home#pricing'
 
   namespace :user do
     get '/profile'          => 'profiles#edit_profile'
