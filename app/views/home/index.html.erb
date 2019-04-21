@@ -1,0 +1,69 @@
+<div class="jumbotron">
+  <div class="row">
+    <div class="col-lg-6 mx-lg-auto col-md-8 mx-md-auto">
+    <h3 class="text-center">Search professional at SpareHour</h3>
+      <div class="input-group mt-5 mb-5">
+        <input type="text" class="form-control rounded-0" placeholder="Search here..">
+        <div class="input-group-append">
+          <button class="btn bg-custom text-white rounded-0" type="button">
+            <i class="fa fa-search mr-1"></i> Search
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% unless @professionals.empty? %>
+  <section class="mt-5 mb-5">
+    <div class="container">
+      <div class="row">
+        <% @professionals.limit(6).each do |professional| %>
+          <div class="col-md-4 col-sm-6 mb-4">
+            <div class="card rounded-0">
+              <div class="card-body text-center">
+                <%= image_tag "user.jpg", width: '100', class: 'rounded-circle pro-img' %>
+                <h6 class="font-15 mt-3"><%= professional.name || 'Dummy User' %></h6>
+                <%= link_to "View Profile", "javascript:void(0)", class: "btn btn-dark mt-2" %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <div class="col-12 text-center mt-4">
+          <% if @professionals.size > 6 %>
+            <%= link_to "See All Professionals", "javascript:void(0)", class: "btn btn-dark" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </section>
+<% end %>
+
+<section class="subscription-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 mx-lg-auto col-lg-9 mx-md-auto text-center p-5">
+        <h1 class="text-white mb-2">Stay Connected</h1>
+        <p class="lead mb-3 text-white">Subscribe here for our weekly news letter</p>
+        <%= form_for :subscription, url: '#', method: :post do |f| %>
+          <div class="input-group mb-3">
+            <%= f.email_field :email, class: "form-control form-control-lg", placeholder: "Write your email here", area: { label: "Write your email here", describedby: "basic-addon2" } %>
+            <div class="input-group-append">
+              <button type="submit" class="btn btn-dark btn-lg" type="button">Subscribe <i class="fa fa-envelope ml-2"></i> </button>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style type="text/css">
+  .pro-img {
+    border: 1px solid #ccc;
+  }
+  .subscription-section {
+    min-height: 200px;
+    background-color: #2b3eca;
+  }
+</style>

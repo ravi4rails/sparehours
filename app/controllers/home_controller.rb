@@ -1,5 +1,7 @@
 class HomeController < ApplicationController
 
-  def index;end
+  def index
+    @professionals = User.professionals
+  end
 
 end

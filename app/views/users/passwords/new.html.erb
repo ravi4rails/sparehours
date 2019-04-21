@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-10 col-md-8 col-xl-6 col-10 offset-xl-3">
+    <div class="col-md-5 mx-md-auto">
       <div class="card mt-5">
         <div class="card-header">
           <h4 class="text-center p-0 custom-text-color">Forgot your password?</h4>
@@ -13,9 +13,7 @@
               <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control",placeholder:"Email" %>
             </div>
             <div class="actions">
-              <%= f.submit "Send me reset password instructions", class: "btn float-right bg-custom text-white" %>
-              <%= link_to "Log in", new_session_path(resource_name) %><br />
-              <%= link_to "Register", register_path %>
+              <%= f.submit "Send me reset password instructions", class: "btn btn-dark btn-block" %>
           </div>
         <% end %>  
       </div>
