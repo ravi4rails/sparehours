@@ -1,0 +1,66 @@
+<div class="container mt-5 mb-5">
+  <div class="row">
+    <div class="col-lg-3 col-md-4 col-sm-5 col-12">
+      <%= render "partials/user_side_bar" %>
+    </div>
+    <div class="col-lg-9 col-md-8 col-sm-7 col-12">
+      <div class="card rounded-0 mb-3">
+        <div class="card-body">
+          <% unless @user.skills.present? %>
+            <small class="text-danger">** You have not added any skill yet to your profile. Your profile will not be displayed to outside users until you have at least one skill.</small>
+          <% end %>
+          <h3>Manage Skills</h3>
+          <%= form_for :skills, url: :user_update_skills, method: :patch do |f| %>
+            <div class="form-group row">
+              <% @skills.each do |skill| %>
+                <div class="col-md-3 col-sm-4 col-6">
+                  <% if @user.skills.ids.include? skill.id %>
+                    <label>
+                      <input type="checkbox" name="skills[skill_remove][]" value="<%= skill.id %>" checked>
+                      <%= skill.name %>
+                    </label>
+                  <% else %>
+                    <label>
+                      <input type="checkbox" name="skills[skill_add][]" value="<%= skill.id %>">
+                      <%= skill.name %>
+                    </label>
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
+            <div class="form-group row">
+              <div class="col-md-4">
+                <%= f.submit 'Update My Skills', class: "btn btn-dark rounded-0 btn-block" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="row mt-3">
+        <% @user.user_skills.each do |user_skill| %>
+          <div class="col-md-4 col-sm-4 col-6">
+            <div class="card rounded-0 mb-3">
+              <div class="card-body text-center">
+                <h5><%= user_skill.skill.name %></h5>
+                <%= link_to user_user_skill_path(user_skill), data: { confirm: 'Are you sure?', method: :delete }, class: "btn btn-danger btn-sm rounded-0 font-12" do %>
+                  <i class="fa fa-trash"></i> Delete
+                <% end %>
+                <% if user_skill.is_primary %>
+                  <%= link_to user_user_skill_path(user_skill, set: false), method: :patch, class: "btn btn-danger btn-sm rounded-0 font-12" do %>
+                    <i class="fa fa-cog"></i> Remove Primary
+                  <% end %>
+                <% else %>
+                  <%= link_to user_user_skill_path(user_skill, set: true), method: :patch, class: "btn btn-dark btn-sm rounded-0 font-12" do %>
+                    <i class="fa fa-cog"></i> Set as Primary
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+</div>

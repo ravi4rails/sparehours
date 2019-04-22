@@ -11,6 +11,9 @@ class User < ApplicationRecord
   geocoded_by :address
   after_validation :geocode
 
+  has_many :user_skills
+  has_many :skills, through: :user_skills
+
   def name
     "#{self.first_name} #{self.last_name}".strip.capitalize
   end

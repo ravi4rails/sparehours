@@ -16,5 +16,9 @@ Rails.application.routes.draw do
     post '/update_profile'     => 'profiles#update_profile'
     patch 'update_personal_info' => 'profiles#update_personal_info'
     patch 'update_address_info' => 'profiles#update_address_info'
+    get '/skills' => 'profiles#manage_skills'
+    patch 'update_skills' => 'profiles#update_skills'
+
+    resources :user_skills
   end
 end
