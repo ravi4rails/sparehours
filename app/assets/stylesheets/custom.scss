@@ -74,3 +74,23 @@ section.pricing {
     opacity: 1;
   }
 }
+
+.pro-img {
+border: 1px solid #ccc;
+}
+.subscription-section {
+    min-height: 200px;
+    background-color: #2b3eca;
+}
+
+.pro-list-items .list-group-item:first-child {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+  .pro-list-items .list-group-item:last-child {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .pro-card {
+    border-bottom: 0px;
+  }

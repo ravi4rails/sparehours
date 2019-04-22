@@ -4,4 +4,6 @@ class HomeController < ApplicationController
     @professionals = User.professionals
   end
 
+  def pricing;end
+
 end

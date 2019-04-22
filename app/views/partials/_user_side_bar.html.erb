@@ -1,0 +1,18 @@
+<div class="card rounded-0 pro-card">
+  <div class="card-body">
+    <div class="text-center">
+      <%= image_tag "user.jpg", class: "rounded-circle pro-img", width: '150' %>
+      <h5 class="mt-3 mb-0 font-weight-bold"><%= @user.name %></h5>
+      <small class="text-white badge badge-info">Full Stack Ruby on Rails Developer</small>
+    </div>
+  </div>
+</div>
+<div class="list-group pro-list-items">
+  <%= link_to "Personal Information", user_edit_personal_info_path, class: "list-group-item list-group-item-action" %>
+  <%= link_to "Address Information", user_edit_address_info_path, class: "list-group-item list-group-item-action" %>
+  <%= link_to "Account Information", edit_user_registration_path, class: "list-group-item list-group-item-action" %>
+  <button type="button" class="list-group-item list-group-item-action">Skill Management</button>
+  <button type="button" class="list-group-item list-group-item-action">Manage Spare Hours</button>
+  <button type="button" class="list-group-item list-group-item-action">Massages</button>
+  <%= link_to "Log Out", destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure you want to sign out?' }, class: 'list-group-item list-group-item-action' %>
+</div>

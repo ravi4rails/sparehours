@@ -1,0 +1,46 @@
+<div class="container mt-5 mb-5">
+  <div class="row">
+    <div class="col-lg-3 col-md-4 col-sm-5 col-12">
+      <%= render "partials/user_side_bar" %>
+    </div>
+    <div class="col-lg-9 col-md-8 col-sm-7 col-12">
+      <div class="card rounded-0">
+        <div class="card-body">
+          <%= form_for @user, url: :user_update_address_info, method: :patch do |f| %>
+            <%= f.hidden_field :longitude, id: :longitude %>
+            <%= f.hidden_field :latitude, id: :latitude %>
+            <div class="form-group row">
+              <div class="col-md-12">
+                <%= f.label :address %>
+                <%= f.text_field :address, class: "form-control rounded-0", placeholder: "Address", id: "autocomplete", onFocus: "geolocate()" %>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-md-6">
+                <%= f.label :city %>
+                <%= f.text_field :city, class: "form-control rounded-0", placeholder: "City", id: "locality", disabled: true %>
+              </div>
+              <div class="col-md-6">
+                <%= f.label :state %>
+                <%= f.text_field :state, class: "form-control rounded-0", placeholder: "City", id: "administrative_area_level_1", disabled: true %>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-md-6">
+                <%= f.label :country %>
+                <%= f.text_field :country, class: "form-control rounded-0", placeholder: "Country", id: "country", disabled: true %>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-md-6">
+                <%= f.submit "Update Address Info", class: 'btn btn-dark btn-block rounded-0' %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFBYM37YGMTdgkEp9fipPljSjprTDZL8Y&libraries&libraries=places&callback=initAutocomplete" async defer></script>

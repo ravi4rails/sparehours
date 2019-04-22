@@ -1,7 +1,7 @@
 var placeSearch, autocomplete;
 var componentForm = {
   locality: 'long_name',
-  administrative_area_level_1: 'short_name',
+  administrative_area_level_1: 'long_name',
   country: 'long_name'
 };
 function initAutocomplete() {

@@ -10,7 +10,11 @@ Rails.application.routes.draw do
   get '/pricing'  => 'home#pricing'
 
   namespace :user do
-    get '/profile'          => 'profiles#edit_profile'
-    post '/update_profile'  => 'profiles#update_profile'
+    get '/dashboard'        => 'profiles#dashboard'
+    get '/edit-personal-info' => 'profiles#edit_personal_info'
+    get '/edit-address-info' => 'profiles#edit_address_info'
+    post '/update_profile'     => 'profiles#update_profile'
+    patch 'update_personal_info' => 'profiles#update_personal_info'
+    patch 'update_address_info' => 'profiles#update_address_info'
   end
 end

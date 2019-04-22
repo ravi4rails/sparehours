@@ -6,7 +6,7 @@
     <div class="col-lg-9 col-md-8 col-sm-7 col-12">
       <div class="card rounded-0">
         <div class="card-body">
-          <%= form_for @user, url: '#', method: :patch do |f| %>
+          <%= form_for @user, url: :user_update_personal_info, method: :patch do |f| %>
             <div class="form-group row">
               <div class="col-md-6">
                 <%= f.label :first_name %>
@@ -44,4 +44,3 @@
     </div>
   </div>
 </div>
-
