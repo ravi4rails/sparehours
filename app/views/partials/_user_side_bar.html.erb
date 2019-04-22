@@ -8,11 +8,28 @@
   </div>
 </div>
 <div class="list-group pro-list-items">
-  <%= link_to "Personal Information", user_edit_personal_info_path, class: "list-group-item list-group-item-action" %>
-  <%= link_to "Address Information", user_edit_address_info_path, class: "list-group-item list-group-item-action" %>
-  <%= link_to "Account Information", edit_user_registration_path, class: "list-group-item list-group-item-action" %>
-  <button type="button" class="list-group-item list-group-item-action">Skill Management</button>
-  <button type="button" class="list-group-item list-group-item-action">Manage Spare Hours</button>
-  <button type="button" class="list-group-item list-group-item-action">Massages</button>
-  <%= link_to "Log Out", destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure you want to sign out?' }, class: 'list-group-item list-group-item-action' %>
+  <%= link_to user_dashboard_path, class: "list-group-item list-group-item-action" do %>
+    <i class="fas fa-tachometer-alt mr-2"></i> Dashboard
+  <% end %>
+  <%= link_to user_edit_personal_info_path, class: "list-group-item list-group-item-action" do %>
+    <i class="fas fa-user mr-2"></i> Personal Information
+  <% end %>
+  <%= link_to user_edit_address_info_path, class: "list-group-item list-group-item-action" do %>
+    <i class="fas fa-map-marker mr-2"></i> Address Information
+  <% end %>
+  <%= link_to edit_user_registration_path, class: "list-group-item list-group-item-action" do %>
+    <i class="fas fa-lock mr-2"></i> Account Information
+  <% end %>
+  <%= link_to "javascript:void(0)", class: "list-group-item list-group-item-action" do %>
+    <i class="fas fa-book mr-2"></i> Skill Management
+  <% end %>
+  <%= link_to "javascript:void(0)", class: "list-group-item list-group-item-action" do %>
+    <i class="fas fa-calendar mr-2"></i> Manage Spare Hours
+  <% end %>
+  <%= link_to "javascript:void(0)", class: "list-group-item list-group-item-action" do %>
+    <i class="fas fa-envelope mr-2"></i> Messages
+  <% end %>
+  <%= link_to destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure you want to sign out?' }, class: 'list-group-item list-group-item-action' do %>
+    <i class="fas fa-sign-out-alt mr-2"></i> Log Out
+  <% end %>
 </div>
